@@ -1,0 +1,17 @@
+:root {
+  --color-bg: #EFF7ED;
+  --color-red: #D73B5E;
+  --color-violet: #29223E;
+  --color-bezh: #E9BE9C;
+  --color-grey: #707070;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'TT Regular';
+  background: var(--color-bg);
+}
