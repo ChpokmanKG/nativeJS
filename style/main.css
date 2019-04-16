@@ -4,14 +4,104 @@
   --color-violet: #29223E;
   --color-bezh: #E9BE9C;
   --color-grey: #707070;
+  --font-regular: 'TT Regular';
+  --font-bold: 'TT BOLD';
 }
 
 * {
   padding: 0;
   margin: 0;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  outline: none;
 }
 
 body {
   font-family: 'TT Regular';
   background: var(--color-bg);
+  overflow: hidden;
+}
+
+.all-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  width: 90%;
+  margin: 0 auto; 
+}
+.logo-text {
+  color: var(--color-bg);
+  font-size: 147px;
+  font-size: 40px;
+  text-align: center;
+  transition: all 1.5s cubic-bezier(.25,.8,.25,1);
+}
+.div50 {
+  width: 50%;
+  height: 100px;
+  /* border: 1px solid red; */
+  height: calc(100vh - 57px);
+}
+.div100 {
+  width: 100%;
+}
+.red {
+  color: var(--color-red);
+}
+
+.form {
+  background: #fff;
+  width: 290px;
+  height: 390px;
+  border-radius: 14px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-sizing: border-box;
+  padding: 100px 20px 100px 20px;
+}
+.signin-button {
+  width: 100%;
+  height: 70px;
+  background: #fff;
+  border: 1px solid var(--color-grey);
+  color: var(--color-red);
+  font-size: 30px;
+  font-family: var(--font-bold);
+  border-radius: 14px;
+  z-index: 1;
+}
+.signup-button {
+  border: none;
+  background: var(--color-bg);
+  color: var(--color-violet);
+}
+
+.signup-button:hover, .signin-button:hover {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  cursor: pointer;
+}
+
+.signin-button-active-for-signup {
+  height: 50px !important;
+  font-size: 20px !important;
+}
+
+.input-in-form {
+  position: absolute;
+  width: calc(100% - 44px);
+  height: 40px;
+  border-radius: 14px;
+  border: 1px solid var(--color-grey);
+  text-align: center;
+  font-family: var(--font-regular);
+}
+.input-in-form:hover {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.input-in-form2 {
+  height: 30px;
+  position: absolute;
+  top: 220px;
+  transition: .9s;
 }
