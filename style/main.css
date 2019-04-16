@@ -105,3 +105,13 @@ body {
   top: 220px;
   transition: .9s;
 }
+
+.signInP {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  font-family: var(--font-bold);
+  font-size: 30px;
+  transition: 1s;
+}
+/* ВТОРАЯ СТРАНИЦА */

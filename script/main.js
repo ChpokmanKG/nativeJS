@@ -1,11 +1,5 @@
-
-
-
 (function Chpok(){
   const mainWrap = document.getElementById('root');
-  this.state = {
-    firstViewContent: true
-  }
   
   
   function MakeElement(el,clas,id,inside){
@@ -30,7 +24,7 @@
   const container = MakeElement('div','container','',false);
   let div100 = MakeElement('div','div100','firstWrap',false);
   (function firstView(){
-    const logoText = MakeElement('p','logo-text','','Story');
+    const logoText = MakeElement('p','logo-text','logoText','Story');
     
     let div50 = MakeElement('div','div50 all-center','',false);
     let div50v2 = MakeElement('div','div50 all-center','right',false);
@@ -91,6 +85,7 @@
     let surname = MakeElement('input','input-in-form input-in-form2','',false);
     let login2 = MakeElement('input','input-in-form input-in-form2','',false);
     let passInput2 = MakeElement('input','input-in-form input-in-form2','',false);
+    let signInP = MakeElement('p','signInP','','Войти');
 
     // let boolForSignInButton = false;
 
@@ -98,6 +93,7 @@
     secondButton.onclick = () => signUpClick();
     
 
+    wrap.appendChild(signInP);
     wrap.appendChild(login);
     wrap.appendChild(passInput);
     wrap.appendChild(firstButton);
@@ -125,6 +121,7 @@
     login2.style.transition = '1.5s';
     passInput2.placeholder = 'Пароль';
     firstButton.style.transition = '1s';
+    signInP.style.opacity = 0;
 
 
     setTimeout(() => {
@@ -145,10 +142,10 @@
       login2.style.top = '320px';
       passInput2.style.top = '320px';
       wrap.style.paddingTop = '100px';
+      signInP.style.opacity = 1;
       count++;
       console.log(count);
       if(count == 2) {
-        alert('Проходи');
         removeContent();
       }
     }
@@ -167,13 +164,26 @@
       login2.style.top = '200px';
       surname.style.top = '150px';
       name.style.top = '100px';
+      signInP.style.opacity = 0;
       count = 0;
     }
     removeContent = () => {
       var a = document.getElementById('firstWrap');
-      a.parentNode.removeChild(a);
+      a.style.opacity = 0;
+      setTimeout(() => {
+        a.parentNode.removeChild(a);
+      },1300);
+      var b = document.getElementById('logoText');
+      setTimeout(() => {
+        b.style.marginTop = '-10px';
+        b.style.opacity = '0';
+      },1000)
     }
     return wrap;
   }
+
+  function main(){
+    
+  };
 
 })();
