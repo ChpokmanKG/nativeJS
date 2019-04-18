@@ -169,14 +169,17 @@
     }
     removeContent = () => {
       var a = document.getElementById('firstWrap');
+      a.style.transition = '1s';
+      a.style.marginTop = '-30px';
       a.style.opacity = 0;
+      
+
       setTimeout(() => {
         a.parentNode.removeChild(a);
       },1300);
       var b = document.getElementById('logoText');
       setTimeout(() => {
-        b.style.marginTop = '-10px';
-        b.style.opacity = '0';
+        menuBlock.open();
       },1000)
     }
     return wrap;
@@ -185,5 +188,15 @@
   function main(){
     
   };
+
+  let menuBlock = {
+    open: () => {
+      let element = document.getElementById('menu-block');
+      element.classList.add('menu-block-wrap-active');
+    },
+    bye: () => {
+      alert('Bye')
+    }
+  }
 
 })();
