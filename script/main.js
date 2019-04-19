@@ -71,7 +71,7 @@
     container.appendChild(logoText);
     container.appendChild(div100);
     render(container);
-  })();
+  })(); //Сюда нужно вставить () 
 
   function Form(){
     let count = 0;
@@ -195,7 +195,8 @@
       element.classList.add('menu-block-wrap-active');
     },
     bye: () => {
-      alert('Bye')
+      let element = document.getElementById('menu-block');
+      element.classList.remove('menu-block-wrap-active');
     }
   }
 
