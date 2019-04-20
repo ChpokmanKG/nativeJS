@@ -180,6 +180,7 @@
       var b = document.getElementById('logoText');
       setTimeout(() => {
         menuBlock.open();
+        mainPage.open();
       },1000)
     }
     return wrap;
@@ -197,6 +198,17 @@
     bye: () => {
       let element = document.getElementById('menu-block');
       element.classList.remove('menu-block-wrap-active');
+    }
+  }
+  
+  let mainPage = {
+    open: () => {
+      let mainWrap = document.getElementById('main');
+      mainWrap.style.opacity = 1;
+    },
+    close: () => {
+      let mainWrap = document.getElementById('main');
+      mainWrap.style.opacity = 0;
     }
   }
 
