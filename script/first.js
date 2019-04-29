@@ -1,3 +1,5 @@
+
+
 (function Chpok(){
   const mainWrap = document.getElementById('root');
   
@@ -71,15 +73,15 @@
     container.appendChild(logoText);
     container.appendChild(div100);
     render(container);
-  })(); //Сюда нужно вставить () 
+  })(); 
 
   function Form(){
     let count = 0;
     let wrap = MakeElement('div','form','',false);
-    let firstButton = MakeElement('button','signin-button','','Войти');
+    let firstButton = MakeElement('button','signin-button','signIn','Войти');
     let secondButton = MakeElement('button','signin-button signup-button','','Регистрация');
-    let login = MakeElement('input','input-in-form','',false);
-    let passInput = MakeElement('input','input-in-form','',false);
+    let login = MakeElement('input','input-in-form','login',false);
+    let passInput = MakeElement('input','input-in-form','password',false);
 
     let name = MakeElement('input','input-in-form input-in-form2','',false);
     let surname = MakeElement('input','input-in-form input-in-form2','',false);
@@ -172,23 +174,22 @@
       a.style.transition = '1s';
       a.style.marginTop = '-30px';
       a.style.opacity = 0;
+      logoText.style.opacity = 0;
       
 
       setTimeout(() => {
         a.parentNode.removeChild(a);
+        logoText.style.opacity = 1;
       },1300);
       var b = document.getElementById('logoText');
       setTimeout(() => {
         menuBlock.open();
         mainPage.open();
+        logoText.innerHTML = '<span id="redText" style="color: var(--color-red)">Friends</span> Story';
       },1000)
     }
     return wrap;
   }
-
-  function main(){
-    
-  };
 
   let menuBlock = {
     open: () => {
@@ -212,4 +213,4 @@
     }
   }
 
-})();
+})();    
