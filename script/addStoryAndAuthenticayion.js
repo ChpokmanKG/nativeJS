@@ -9,16 +9,16 @@ let storyTit = document.getElementById('story-title'),
     storyBod = document.getElementById('story-body');
 
 let addButton = document.getElementById('add-button');
-let count = 0;
+let counter = 0;
 
 addButton.onclick = () => {
-  count++;
+  counter++;
   storyTitle.push(storyTit.value);
   storyBody.push(storyBod.value);
   storyTit.value = '';
   storyBod.value = '';
   wrap.innerHTML += `
-  <div class="all-story-card">
+  <div onclick="readStoryAllStory(this)" class="all-story-card">
   <div class="all-story-card-head all-center">
     <p>${login.value}</p>
   </div>
@@ -27,7 +27,7 @@ addButton.onclick = () => {
   
   <div class="all-story-card-body all-center">
     <div class="all-story-card-title all-center">
-      <p>${storyTitle[count - 1]}</p>
+      <p>${storyTitle[counter - 1]}</p>
       <button class="story-card-wrap-read-story">Читать</button>
       <div class="like-fav-wrap all-center all-story-like-fav-wrap">
         <button class="around-button like">
@@ -42,7 +42,7 @@ addButton.onclick = () => {
 
   
   <div class="all-story-card-desc">
-  ${storyBody[count - 1]}
+  ${storyBody[counter - 1]}
   </div>
 </div>
   `

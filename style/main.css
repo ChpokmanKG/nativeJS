@@ -517,3 +517,64 @@ body {
 .add-story-add-button {
   background: #fff;
 }
+.read-story {
+  width: 100%;
+  height: 100vh;
+  background: var(--color-bg);
+  z-index: 100000;
+  position: fixed;
+  top: 0;
+  overflow-y: scroll;
+}
+.read-story-wrap-close {
+  text-transform: uppercase;
+  font-size: 40px;
+}
+
+.read-story-wrap {
+  width: 50%;
+  height: 100%;
+  margin: 0 auto;
+  background: var(--color-bg);
+}
+.read-story-wrap-head {
+  width: 100%;
+  height: 80px;
+  justify-content: space-around;
+}
+
+.read-story-wrap-theme {
+  justify-content: space-between;
+  width: 10%;
+}
+
+.read-story-wrap-tilte {
+  font-size: 25px;
+}
+
+.read-story-wrap-theme-around {
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.read-story-wrap-theme-around:hover {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#white-theme {
+  background: var(--color-bg);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#yellow-theme {
+  background: var(--color-bezh);
+}
+
+#afro-american-theme {
+  background: #262626;
+}
+
+.read-story-wrap-body {
+  font-size: 20px;
+}

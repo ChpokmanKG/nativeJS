@@ -1,4 +1,7 @@
-let countF = 0;
+countfetch = 0;
+
+(function(){
+  let countF = 0;
 let a = document.getElementById('signIn')
   .addEventListener('click',() => {
     countF++;
@@ -32,7 +35,7 @@ fetch('https://demo5957191.mockable.io/friendStory', {method: 'GET'})
     let allContent;
     Array.from(arr).forEach(item => {
       content += `
-      <div class="story-card-wrap">
+      <div data-number="${countfetch}" onclick="readStory(this)" class="story-card-wrap">
       <div class="story-card-wrap-head all-center">
         <p class="story-card-wrap-username">
           ${item.username}
@@ -45,9 +48,6 @@ fetch('https://demo5957191.mockable.io/friendStory', {method: 'GET'})
         </p>
       </div>
       <div class="story-card-wrap-body all-center">
-        <button class="story-card-wrap-read-story">
-          Читать
-        </button>
         <div class="like-fav-wrap all-center">
           <button class="around-button like">
 
@@ -61,7 +61,7 @@ fetch('https://demo5957191.mockable.io/friendStory', {method: 'GET'})
       `;
 
       allContent += `
-      <div class="all-story-card">
+      <div data-number="${countfetch}" onclick="readStoryAllStory(this)" class="all-story-card">
       <div class="all-story-card-head all-center">
         <p>${item.username}</p>
       </div>
@@ -71,7 +71,6 @@ fetch('https://demo5957191.mockable.io/friendStory', {method: 'GET'})
       <div class="all-story-card-body all-center">
         <div class="all-story-card-title all-center">
           <p>${item.storyTitle}</p>
-          <button class="story-card-wrap-read-story">Читать</button>
           <div class="like-fav-wrap all-center all-story-like-fav-wrap">
             <button class="around-button like">
   
@@ -89,6 +88,7 @@ fetch('https://demo5957191.mockable.io/friendStory', {method: 'GET'})
       </div>
     </div>
       `;
+      countfetch++;
     })
     wrap.innerHTML = content;
     allStoryWrap.innerHTML = allContent;
@@ -115,3 +115,4 @@ fetch('https://demo5957191.mockable.io/friendStory', {method: 'GET'})
     </div>`;
   })
 }
+})()
