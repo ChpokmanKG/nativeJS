@@ -2,6 +2,7 @@
 
 (function Chpok(){
   const mainWrap = document.getElementById('root');
+  let profileUsername = document.getElementById('profileUsername');
   
   
   function MakeElement(el,clas,id,inside){
@@ -148,6 +149,7 @@
       count++;
       console.log(count);
       if(count == 2) {
+        profileUsername.innerHTML = login.value;
         removeContent();
       }
     }

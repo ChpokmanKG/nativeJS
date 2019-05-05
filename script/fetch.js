@@ -48,6 +48,9 @@ fetch('https://demo5957191.mockable.io/friendStory', {method: 'GET'})
         </p>
       </div>
       <div class="story-card-wrap-body all-center">
+      <button class="story-card-wrap-read-story" onclick="storyOpen()">
+              Читать
+            </button>
         <div class="like-fav-wrap all-center">
           <button class="around-button like">
 
@@ -71,6 +74,9 @@ fetch('https://demo5957191.mockable.io/friendStory', {method: 'GET'})
       <div class="all-story-card-body all-center">
         <div class="all-story-card-title all-center">
           <p>${item.storyTitle}</p>
+          <button class="story-card-wrap-read-story" onclick="storyOpen()">
+              Читать
+            </button>
           <div class="like-fav-wrap all-center all-story-like-fav-wrap">
             <button class="around-button like">
   
@@ -89,6 +95,7 @@ fetch('https://demo5957191.mockable.io/friendStory', {method: 'GET'})
     </div>
       `;
       countfetch++;
+      undeFinedSearch();
     })
     wrap.innerHTML = content;
     allStoryWrap.innerHTML = allContent;
@@ -114,5 +121,10 @@ fetch('https://demo5957191.mockable.io/friendStory', {method: 'GET'})
     </small>
     </div>`;
   })
+}
+let undeFinedSearch = () => {
+  setTimeout(() => {
+    wrap.innerHTML.replace(/undefined\..*/, '').trim();
+  },1000);
 }
 })()
