@@ -44,6 +44,11 @@ let modalBlock = document.getElementById('modal-block2'),
     }
 
   
+    const randomIntAddStory = (min,max) => {
+      return Math.floor(Math.random() * (max - min) + min);
+    }
+
+
 addButton.onclick = () => {
   counter++;
   storyTitle.push(storyTit.value);
@@ -59,7 +64,7 @@ addButton.onclick = () => {
     storySucces.style.opacity = 0;
   },1500);
   wrap.innerHTML += `
-  <div onclick="readStoryAllStory(this)" class="all-story-card" style="background: url(${link.value}) center center / cover">
+  <div id="${randomIntAddStory(0,100000000)}" onclick="readStoryAllStory(this),favoriteStoryFuncOnClick(this)" class="all-story-card" style="background: url(${link.value}) center center / cover">
   <div class="all-story-card-head all-center">
     <p>${login.value}</p>
   </div>
@@ -76,7 +81,7 @@ addButton.onclick = () => {
       <button class="around-button like">
 
         </button>
-        <button class="around-button fav">
+        <button class="around-button fav" onclick="addFavoriteStory()">
 
         </button>
       </div>
@@ -92,7 +97,7 @@ addButton.onclick = () => {
   lastStory.innerHTML = `
   <p class="profileBlock50Header">Последняя история</p>
 
-  <div onclick="readStoryAllStory(this)" class="all-story-card" style="background: url(${link.value}) center center / cover">
+  <div id="${randomIntAddStory(0,100000000)}" onclick="readStoryAllStory(this),favoriteStoryFuncOnClick(this)" class="all-story-card" style="background: url(${link.value}) center center / cover">
     <div class="all-story-card-head all-center">
       <p>${login.value}</p>
     </div>
@@ -110,7 +115,7 @@ addButton.onclick = () => {
         <button class="around-button like">
   
           </button>
-          <button class="around-button fav">
+          <button class="around-button fav" onclick="addFavoriteStory()">
   
           </button>
         </div>

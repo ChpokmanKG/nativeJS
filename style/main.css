@@ -196,6 +196,8 @@ body {
   transition: 1s;
   overflow-y: scroll;
   display: none;
+  perspective: 1000px;
+  transition: transform .2s;
 }
 
 .main::-webkit-scrollbar {
@@ -215,6 +217,8 @@ body {
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   margin-bottom: 20px;
+  perspective: 1000px;
+  transform-style: preserve-3d;
 }
 
 .story-card-wrap:hover .story-card-wrap-head{

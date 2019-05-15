@@ -2,15 +2,21 @@ countfetch = 0;
 
 (function(){
   let countF = 0;
+
 let a = document.getElementById('signIn')
   .addEventListener('click',() => {
     countF++;
     if(countF == 2) {
       addContent();
     }
-  })
+  });
 
-addContent = () => {
+let b = document.getElementById('signUp')
+    .addEventListener('click',() => {
+      countF = 0;
+    });
+
+  addContent = () => {
   let wrap = document.getElementById('main');
   let allStoryWrap = document.getElementById('all-story');
 let Quotes = [
@@ -27,15 +33,17 @@ const randomInt = (min,max) => {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
+
+
 fetch('https://demo5957191.mockable.io/friendStory', {method: 'GET'})
   .then(result => result.json())
   .then(arr => {
     console.log(arr);
-    let content;
-    let allContent;
+    let content = '';
+    let allContent = '';
     Array.from(arr).forEach(item => {
       content += `
-      <div data-number="${countfetch}" onclick="readStory(this)" class="story-card-wrap">
+      <div data-number="${countfetch}" id="${randomInt(0,1000000)}" onclick="readStory(this),favoriteStoryFuncOnClick(this)" class="story-card-wrap">
       <div class="story-card-wrap-head all-center">
         <p class="story-card-wrap-username">
           ${item.username}
@@ -55,7 +63,7 @@ fetch('https://demo5957191.mockable.io/friendStory', {method: 'GET'})
           <button class="around-button like">
 
           </button>
-          <button class="around-button fav">
+          <button class="around-button fav" onclick="addFavoriteStory()">
 
           </button>
         </div>
@@ -64,7 +72,7 @@ fetch('https://demo5957191.mockable.io/friendStory', {method: 'GET'})
       `;
 
       allContent += `
-      <div data-number="${countfetch}" onclick="readStoryAllStory(this)" class="all-story-card">
+      <div id="${randomInt(0,1000000)}"  data-number="${countfetch}" onclick="readStoryAllStory(this),favoriteStoryFuncOnClick(this)" class="all-story-card">
       <div class="all-story-card-head all-center">
         <p>${item.username}</p>
       </div>
@@ -81,7 +89,7 @@ fetch('https://demo5957191.mockable.io/friendStory', {method: 'GET'})
             <button class="around-button like">
   
             </button>
-            <button class="around-button fav">
+            <button class="around-button fav" onclick="addFavoriteStory()">
   
             </button>
           </div>
@@ -95,7 +103,7 @@ fetch('https://demo5957191.mockable.io/friendStory', {method: 'GET'})
     </div>
       `;
       countfetch++;
-      undeFinedSearch();
+      //undeFinedSearch();
     })
     wrap.innerHTML = content;
     allStoryWrap.innerHTML = allContent;
@@ -121,10 +129,5 @@ fetch('https://demo5957191.mockable.io/friendStory', {method: 'GET'})
     </small>
     </div>`;
   })
-}
-let undeFinedSearch = () => {
-  setTimeout(() => {
-    wrap.innerHTML.replace(/undefined\..*/, '').trim();
-  },1000);
 }
 })()

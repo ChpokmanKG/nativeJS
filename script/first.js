@@ -3,6 +3,11 @@
 (function Chpok(){
   const mainWrap = document.getElementById('root');
   let profileUsername = document.getElementById('profileUsername');
+
+  let nameOfUserName = [];
+  let surnameOfUserName = [];
+  let loginOfUserName = [];
+  let passwordOfUserName = [];
   
   
   function MakeElement(el,clas,id,inside){
@@ -80,14 +85,14 @@
     let count = 0;
     let wrap = MakeElement('div','form','',false);
     let firstButton = MakeElement('button','signin-button','signIn','Войти');
-    let secondButton = MakeElement('button','signin-button signup-button','','Регистрация');
+    let secondButton = MakeElement('button','signin-button signup-button','signUp','Регистрация');
     let login = MakeElement('input','input-in-form','login',false);
     let passInput = MakeElement('input','input-in-form','password',false);
 
-    let name = MakeElement('input','input-in-form input-in-form2','',false);
-    let surname = MakeElement('input','input-in-form input-in-form2','',false);
-    let login2 = MakeElement('input','input-in-form input-in-form2','',false);
-    let passInput2 = MakeElement('input','input-in-form input-in-form2','',false);
+    let name = MakeElement('input','input-in-form input-in-form2','name',false);
+    let surname = MakeElement('input','input-in-form input-in-form2','surname',false);
+    let login2 = MakeElement('input','input-in-form input-in-form2','loginSignIn',false);
+    let passInput2 = MakeElement('input','input-in-form input-in-form2','loginSignInPass',false);
     let signInP = MakeElement('p','signInP','','Войти');
 
     // let boolForSignInButton = false;
@@ -148,7 +153,7 @@
       signInP.style.opacity = 1;
       count++;
       console.log(count);
-      if(count == 2) {
+      if(count == 3) {
         profileUsername.innerHTML = login.value;
         removeContent();
       }
@@ -214,5 +219,8 @@
       mainWrap.style.opacity = 0;
     }
   }
+
+  
+  
 
 })();    
